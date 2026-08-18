@@ -39,18 +39,6 @@ flowchart LR
 
 完整步驟請開啟 [教師部署圖文說明](docs/教師部署圖文說明.md)，或直接雙擊壓縮包內的 `教師部署圖文說明.html`。
 
-## 給專案分享者
-
-正式公開前請依序完成：
-
-1. 閱讀 [建立 GitHub 範本](docs/給分享者-建立GitHub範本.md)。
-2. 把本資料夾上傳至公開 GitHub 程式庫。
-3. 將本頁的一鍵部署網址換成實際程式庫網址。
-4. 在 GitHub 的 Repository settings 啟用 **Template repository**。
-5. 執行 `npm run check:share`，確認沒有帳號、資料庫 ID 或秘密檔案。
-6. 確認 [教育分享授權](教育分享授權.md) 的權利人資料與使用範圍。
-
-Cloudflare 會依 `wrangler.jsonc` 自動建立每位教師自己的 D1 資料庫，並在部署時依序套用 `drizzle` 資料夾內的遷移。請勿把任何既有部署的 `account_id` 或 `database_id` 放入公開範本。
 
 ## 技術資訊
 
