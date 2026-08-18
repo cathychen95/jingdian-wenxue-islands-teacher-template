@@ -1,0 +1,4 @@
+# 僅供本機測試及 Cloudflare 部署畫面辨識必要 Secret。
+# 請勿在公開程式庫中填入真正密碼，也不要將 .dev.vars 上傳。
+TEACHER_USERNAME=
+TEACHER_PASSWORD=
