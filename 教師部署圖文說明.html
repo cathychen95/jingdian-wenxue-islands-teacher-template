@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>經典文學闖關島｜教師部署圖文說明</title>
+  <style>
+    :root { --ink:#20382f; --jade:#3f7561; --gold:#d8a848; --paper:#f7f1e5; --line:#d8cfbe; --white:#fffdf8; }
+    * { box-sizing:border-box; }
+    body { margin:0; color:#25332d; background:radial-gradient(circle at 10% 0,#fff9e9 0 18%,transparent 42%),linear-gradient(150deg,#eef5ef,#f7f1e5 52%,#f4e8cf); font-family:"PingFang TC","Microsoft JhengHei",sans-serif; line-height:1.75; }
+    main { width:min(980px,calc(100% - 28px)); margin:28px auto 80px; }
+    .hero { overflow:hidden; border:1px solid rgba(61,82,70,.15); border-radius:28px; background:var(--white); box-shadow:0 22px 60px rgba(36,56,46,.14); }
+    .hero img { display:block; width:100%; aspect-ratio:1200/630; object-fit:cover; }
+    .hero-copy { padding:28px clamp(22px,5vw,52px) 36px; }
+    .eyebrow { color:var(--jade); font-weight:800; letter-spacing:.18em; }
+    h1 { margin:8px 0 10px; color:var(--ink); font-family:"Noto Serif TC","Songti TC",serif; font-size:clamp(2rem,6vw,4rem); line-height:1.15; }
+    h2 { margin:0 0 8px; color:var(--ink); font-size:1.25rem; }
+    p { margin:6px 0; }
+    .summary { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:24px; }
+    .summary span { padding:14px; border-radius:16px; color:var(--ink); background:#edf4ee; text-align:center; font-weight:800; }
+    .flow { display:flex; align-items:center; justify-content:center; gap:10px; flex-wrap:wrap; margin:28px 0; }
+    .flow b { padding:11px 16px; border:1px solid var(--line); border-radius:999px; background:var(--white); }
+    .flow i { color:var(--gold); font-style:normal; font-size:1.4rem; }
+    .steps { display:grid; gap:16px; }
+    .step { display:grid; grid-template-columns:64px 1fr; gap:18px; padding:24px; border:1px solid rgba(61,82,70,.13); border-radius:22px; background:rgba(255,253,248,.92); box-shadow:0 12px 30px rgba(36,56,46,.08); }
+    .number { width:58px; height:58px; display:grid; place-items:center; border-radius:50%; color:white; background:var(--jade); font-size:1.35rem; font-weight:900; box-shadow:0 8px 20px rgba(63,117,97,.25); }
+    code { padding:.15em .4em; border-radius:6px; color:#813f25; background:#f4e4cb; overflow-wrap:anywhere; }
+    table { width:100%; margin:14px 0; border-collapse:collapse; background:white; }
+    th,td { padding:11px 13px; border:1px solid var(--line); text-align:left; vertical-align:top; }
+    th { color:white; background:var(--ink); }
+    .notice { margin-top:26px; padding:22px; border-left:7px solid var(--gold); border-radius:14px; background:#fff7df; }
+    .checklist { columns:2; padding-left:1.4em; }
+    footer { margin-top:28px; color:#617068; text-align:center; font-size:.9rem; }
+    @media(max-width:680px) { .summary { grid-template-columns:1fr; } .step { grid-template-columns:48px 1fr; padding:18px; } .number { width:46px;height:46px; } .checklist { columns:1; } }
+  </style>
+</head>
+<body>
+<main>
+  <section class="hero">
+    <img src="public/og.png" alt="經典文學闖關島與五位守護生物" />
+    <div class="hero-copy">
+      <div class="eyebrow">教師獨立部署版 · 1.1.0</div>
+      <h1>八個步驟，建立自己的闖關島</h1>
+      <p>每位教師會擁有自己的公開遊戲網址、教師管理端與獨立資料庫。學生不需登入 ChatGPT。</p>
+      <div class="summary"><span>✓ 獨立學生資料</span><span>✓ 獨立教師題庫</span><span>✓ 獨立作答紀錄</span></div>
+    </div>
+  </section>
+
+  <div class="flow" aria-label="部署流程"><b>GitHub 範本</b><i>→</i><b>Cloudflare 部署</b><i>→</i><b>專屬網址＋D1</b></div>
+
+  <section class="steps">
+    <article class="step"><span class="number">1</span><div><h2>準備兩個免費帳號</h2><p>準備自己的 GitHub 與 Cloudflare 帳號。請勿借用其他老師的 Cloudflare 帳戶，否則資料與管理權可能混在一起。</p></div></article>
+    <article class="step"><span class="number">2</span><div><h2>點選 Deploy to Cloudflare</h2><p>開啟分享者提供的 GitHub 專案首頁，點選藍色部署按鈕，依畫面授權 Cloudflare 讀取並複製範本。</p></div></article>
+    <article class="step"><span class="number">3</span><div><h2>命名自己的遊戲</h2><p>建議使用英文小寫、數字與連字號，例如 <code>jingdian-islands-wang-teacher</code>。不同部署不要使用相同名稱。</p></div></article>
+    <article class="step"><span class="number">4</span><div><h2>設定教師首次登入帳密</h2><table><thead><tr><th>欄位</th><th>規則</th></tr></thead><tbody><tr><td><code>TEACHER_USERNAME</code></td><td>4～50 個不含空白的字元</td></tr><tr><td><code>TEACHER_PASSWORD</code></td><td>至少 6 位純數字</td></tr></tbody></table><p>這些資料只供教師使用，不要傳給學生。</p></div></article>
+    <article class="step"><span class="number">5</span><div><h2>等待 Cloudflare 完成建立</h2><p>Cloudflare 會建立專屬 Worker、D1 資料庫及公開 <code>workers.dev</code> 網址，並自動套用資料庫遷移，建立完整資料表與單一登入索引。</p></div></article>
+    <article class="step"><span class="number">6</span><div><h2>登入教師管理端</h2><p>開啟新網址，點選「教師管理端」，輸入剛才設定的帳密。登入後先進入「帳號安全」，確認或更換自己的管理資料。</p></div></article>
+    <article class="step"><span class="number">7</span><div><h2>建立班級、學生與題庫</h2><ol><li>建立班級並保持啟用。</li><li>匯入學生名單與 PIN。</li><li>匯入五島正式題庫 Excel。</li><li>使用測試學生完成挑戰。</li><li>確認作答總覽、排行榜與 Excel 匯出。</li></ol></div></article>
+    <article class="step"><span class="number">8</span><div><h2>確認暱稱與登入保護</h2><ol><li>以測試學生登入，在「設定」修改 2～10 字暱稱。</li><li>確認地圖與排行榜同步顯示新暱稱。</li><li>在另一台裝置登入相同帳號，確認舊裝置會自動失效。</li><li>確認新裝置仍保留原本分數、配件與作答紀錄。</li></ol><p><strong>提醒：</strong>每位學生都應使用不同座號與 PIN；同一帳號不能在多台裝置同時使用。</p></div></article>
+  </section>
+
+  <aside class="notice"><h2>正式交給學生前</h2><ul class="checklist"><li>測試學生可登入</li><li>確認五島各 20 題</li><li>確認教師帳密已保存</li><li>不要公開學生 PIN 表</li><li>確認作答紀錄可匯出</li><li>收藏 Cloudflare 管理頁面</li></ul></aside>
+  <footer>經典文學闖關島｜教師獨立部署版 1.1.0 · 詳細說明請參閱 docs 資料夾</footer>
+</main>
+</body>
+</html>

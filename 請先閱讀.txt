@@ -1,0 +1,14 @@
+經典文學闖關島｜教師獨立部署版 1.1.0
+
+【教師】
+請先雙擊「教師部署圖文說明.html」，依畫面完成自己的 Cloudflare 部署。
+
+【專案分享者】
+請先閱讀「docs/給分享者-建立GitHub範本.md」，把 README 的
+YOUR_GITHUB_ACCOUNT 換成實際 GitHub 帳號，再將本資料夾上傳為公開範本。
+
+提醒：
+1. 每位教師必須部署自己的副本，才會有獨立學生、題庫與作答資料。
+2. 不要把 Cloudflare API Token、.env、.dev.vars 或學生資料放進分享包。
+3. 公開前請填寫「教育分享授權.md」的權利人資料。
+4. 1.1.0 已加入暱稱修改與同一玩家單一同時登入保護，請勿移除 drizzle/0002_fantastic_preak.sql。

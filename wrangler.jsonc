@@ -1,0 +1,25 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "jingdian-wenxue-islands",
+  "compatibility_date": "2026-08-18",
+  "compatibility_flags": ["nodejs_compat"],
+  "main": "./worker/index.ts",
+  "assets": {
+    "directory": "dist/client",
+    "not_found_handling": "none",
+    "binding": "ASSETS"
+  },
+  "images": {
+    "binding": "IMAGES"
+  },
+  "secrets": {
+    "required": ["TEACHER_USERNAME", "TEACHER_PASSWORD"]
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "jingdian-wenxue-islands-db",
+      "migrations_dir": "drizzle"
+    }
+  ]
+}
